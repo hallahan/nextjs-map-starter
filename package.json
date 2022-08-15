@@ -1,0 +1,45 @@
+{
+  "name": "nextjs-map-starter",
+  "version": "0.0.1",
+  "description": "A starter NextJS project using MapLibre, Prisma, and MUI JoyUI",
+  "keywords": [
+    "MapLibre",
+    "Prisma",
+    "MUI",
+    "Joy UI"
+  ],
+  "license": "MIT",
+  "author": "Nick Hallahan",
+  "engines": {
+    "node": ">= 16.16 <17"
+  },
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "clean": "rm -rf node_modules .next prisma/schema.prisma package-lock.json"
+  },
+  "dependencies": {
+    "@next-auth/prisma-adapter": "1.0.4",
+    "@prisma/client": "4.2.1",
+    "next": "12.2.5",
+    "next-auth": "4.10.3",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-markdown": "8.0.3"
+  },
+  "devDependencies": {
+    "@types/next-auth": "3.13.0",
+    "@types/node": "18.7.5",
+    "@types/react": "18.0.17",
+    "prisma": "4.2.1",
+    "ts-node": "10.9.1",
+    "typescript": "4.7.4"
+  },
+  "prisma": {
+    "seed": "ts-node prisma/seed.ts"
+  },
+  "volta": {
+    "node": "16.16.0"
+  }
+}
