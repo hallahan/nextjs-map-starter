@@ -13,10 +13,11 @@ export type MapInfo = {
 
 interface MapProps {
   children?: ReactElement | ReactElement[]
+  onInit?: (map: maplibregl.Map) => void
   onMove?: (info: MapInfo) => void
 }
 
-export default function Map({ children, onMove }: MapProps) {
+export default function Map({ children, onInit, onMove }: MapProps) {
   const mapContainerRef = useRef(null)
 
   // Initialize map when component mounts
@@ -47,6 +48,8 @@ export default function Map({ children, onMove }: MapProps) {
         pitch: map.getPitch(),
       })
     )
+
+    onInit(map)
 
     // Clean up on unmount
     return () => map.remove()

@@ -1,14 +1,24 @@
 import React, { useState } from 'react'
 import Sheet from '@mui/joy/Sheet'
 import Typography from '@mui/joy/Typography'
+import Button from '@mui/joy/Button'
 
 import Map, { MapInfo } from '../../components/map/Map'
-import { LngLatBounds } from 'maplibre-gl'
+import maplibregl, { LngLatBounds } from 'maplibre-gl'
 
 export default function MapPage() {
   const [mapInfo, setMapInfo] = useState<MapInfo>(null)
+  const [map, setMap] = useState<maplibregl.Map>(null)
+  const [tileBoundaries, setTileBoundaries] = useState<boolean>(false)
+
+  function toggleTileBoundaries() {
+    const newVal = !tileBoundaries
+    setTileBoundaries(newVal)
+    map.showTileBoundaries = newVal
+  }
+
   return (
-    <Map onMove={info => setMapInfo(info)}>
+    <Map onInit={map => setMap(map)} onMove={info => setMapInfo(info)}>
       <Sheet
         variant='outlined'
         sx={{
@@ -20,7 +30,10 @@ export default function MapPage() {
           padding: 1,
         }}
       >
-        <Typography level='body3'>
+        <Button size='sm' variant='plain' onClick={() => toggleTileBoundaries()}>
+          Tile Boundaries
+        </Button>
+        <Typography level='body3' pt={1}>
           Bounds: <Typography component='strong'>{JSON.stringify(bbox(mapInfo?.bounds))}</Typography>
           <br />
           Center: <Typography component='strong'>{JSON.stringify(fixed(mapInfo?.center.toArray()))}</Typography>
