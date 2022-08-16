@@ -1,9 +1,14 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { ReactElement, useEffect, useRef, useState } from 'react'
 import maplibregl from 'maplibre-gl'
 
 import styles from './Map.module.css'
 
-export default function Map() {
+interface MapProps {
+  children?: ReactElement | ReactElement[]
+  
+}
+
+export default function Map({ children }: MapProps) {
   const mapContainerRef = useRef(null)
 
   const [lng, setLng] = useState(5)
@@ -20,11 +25,14 @@ export default function Map() {
     })
 
     // Add navigation control (the +/- zoom buttons)
-    map.addControl(new maplibregl.NavigationControl({
-      showCompass: true,
-      showZoom: true,
-      visualizePitch: true,
-    }), 'top-right')
+    map.addControl(
+      new maplibregl.NavigationControl({
+        showCompass: true,
+        showZoom: true,
+        visualizePitch: true,
+      }),
+      'top-right'
+    )
 
     map.on('move', () => {
       setLng(Number(map.getCenter().lng.toFixed(4)))
@@ -37,6 +45,10 @@ export default function Map() {
   }, [])
 
   return (
-    <div className={styles.mapContainer} ref={mapContainerRef} />
+    <div className={styles.mapContainer} ref={mapContainerRef}>
+      <div className={styles.mapUi}>
+        {children}
+      </div>
+    </div>
   )
 }

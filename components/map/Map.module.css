@@ -5,3 +5,9 @@
     left: 0;
     right: 0;
 }
+
+.mapUi {
+    position: relative;
+    padding: 8px;
+    z-index: 2;
+}
