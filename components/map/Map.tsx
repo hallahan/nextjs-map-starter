@@ -1,27 +1,31 @@
-import React, { ReactElement, useEffect, useRef, useState } from 'react'
-import maplibregl from 'maplibre-gl'
+import React, { ReactElement, useEffect, useRef } from 'react'
+import maplibregl, { LngLat, LngLatBounds } from 'maplibre-gl'
 
 import styles from './Map.module.css'
 
-interface MapProps {
-  children?: ReactElement | ReactElement[]
-  
+export type MapInfo = {
+  bounds: LngLatBounds
+  center: LngLat
+  zoom: number
+  bearing: number
+  pitch: number
 }
 
-export default function Map({ children }: MapProps) {
-  const mapContainerRef = useRef(null)
+interface MapProps {
+  children?: ReactElement | ReactElement[]
+  onMove?: (info: MapInfo) => void
+}
 
-  const [lng, setLng] = useState(5)
-  const [lat, setLat] = useState(34)
-  const [zoom, setZoom] = useState(1.5)
+export default function Map({ children, onMove }: MapProps) {
+  const mapContainerRef = useRef(null)
 
   // Initialize map when component mounts
   useEffect(() => {
     const map = new maplibregl.Map({
       container: mapContainerRef.current,
       style: 'https://demotiles.maplibre.org/style.json',
-      center: [lng, lat],
-      zoom: zoom,
+      center: [5, 34],
+      zoom: 2,
     })
 
     // Add navigation control (the +/- zoom buttons)
@@ -34,11 +38,15 @@ export default function Map({ children }: MapProps) {
       'top-right'
     )
 
-    map.on('move', () => {
-      setLng(Number(map.getCenter().lng.toFixed(4)))
-      setLat(Number(map.getCenter().lat.toFixed(4)))
-      setZoom(Number(map.getZoom().toFixed(2)))
-    })
+    map.on('move', () =>
+      onMove({
+        bounds: map.getBounds(),
+        center: map.getCenter(),
+        zoom: map.getZoom(),
+        bearing: map.getBearing(),
+        pitch: map.getPitch(),
+      })
+    )
 
     // Clean up on unmount
     return () => map.remove()
@@ -46,9 +54,7 @@ export default function Map({ children }: MapProps) {
 
   return (
     <div className={styles.mapContainer} ref={mapContainerRef}>
-      <div className={styles.mapUi}>
-        {children}
-      </div>
+      <div className={styles.mapUi}>{children}</div>
     </div>
   )
 }
