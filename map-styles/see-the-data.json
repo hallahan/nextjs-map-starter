@@ -28,6 +28,14 @@
     "shards": {
       "type": "geojson",
       "data": "https://storage.googleapis.com/hellopvt3/shards.geojson"
+    },
+    "set375": {
+      "type": "vector",
+      "tiles": [
+        "https://storage.googleapis.com/hellopvt3/set375/{z}/{x}/{y}"
+      ],
+      "minZoom": 0,
+      "maxZoom": 14
     }
   },
   "glyphs": "https://demotiles.maplibre.org/font/{fontstack}/{range}.pbf",
@@ -58,11 +66,11 @@
           "stops": [
             [
               1,
-              0.8
+              1
             ],
             [
               5,
-              0.3
+              1
             ]
           ]
         }
@@ -269,6 +277,9 @@
       "id": "shards",
       "type": "line",
       "source": "shards",
+      "layout": {
+        "visibility": "none"
+      },
       "paint": {
         "line-color": "rgba(235, 124, 255, 0.3)",
         "line-width": 0.5
@@ -284,12 +295,59 @@
           "file"
         ],
         "text-anchor": "center",
-        "text-size": 14
+        "text-size": 14,
+        "visibility": "none"
       },
       "paint": {
         "text-color": "rgba(235, 124, 255, 1)",
         "text-halo-color": "rgba(0, 0, 0, 1)",
         "text-halo-width": 1
+      }
+    },
+    {
+      "id": "place",
+      "type": "circle",
+      "source": "set375",
+      "source-layer": "place",
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "circle-color": "rgba(255, 0, 0, 1)",
+        "circle-radius": 3
+      }
+    },
+    {
+      "id": "boundary",
+      "type": "line",
+      "source": "set375",
+      "source-layer": "boundary",
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(239, 3, 3, 1)",
+        "line-width": 3
+      }
+    },
+    {
+      "id": "building",
+      "type": "fill",
+      "source": "set375",
+      "source-layer": "building",
+      "minzoom": 13,
+      "maxzoom": 24,
+      "filter": [
+        "all"
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "fill-color": "rgba(236, 164, 3, 1)",
+        "fill-antialias": true,
+        "fill-opacity": 1,
+        "fill-outline-color": "rgba(251, 7, 7, 1)"
       }
     }
   ],
