@@ -1,0 +1,497 @@
+{
+  "id": "thunderforest.outdoors-v2",
+  "attribution": "",
+  "bounds": [-180, -85.0511, 180, 85.0511],
+  "center": [0, 0, 0],
+  "description": "",
+  "format": "pbf",
+  "maskLevel": 8,
+  "maxzoom": 14,
+  "minzoom": 0,
+  "name": "Thunderforest Outdoors",
+  "scheme": "xyz",
+  "tilejson": "2.0.0",
+  "tiles": [
+    "https://a.tile.thunderforest.com/thunderforest.outdoors-v2/{z}/{x}/{y}.vector.pbf",
+    "https://b.tile.thunderforest.com/thunderforest.outdoors-v2/{z}/{x}/{y}.vector.pbf",
+    "https://c.tile.thunderforest.com/thunderforest.outdoors-v2/{z}/{x}/{y}.vector.pbf"
+  ],
+  "vector_layers": [
+    {
+      "id": "elevation",
+      "description": "Elevation polygons. Can be used for contour lines or elevation colouring.",
+      "fields": { "height": "Number. Height above sea level in metres" },
+      "maxzoom": 22,
+      "minzoom": 5
+    },
+    {
+      "id": "hillshade",
+      "description": "Shading polygons",
+      "fields": {
+        "level": "Number. The amount of hillshading, in steps of 5, from 110 (shaded) to 180 (level) to 230 (sun facing)"
+      },
+      "maxzoom": 22,
+      "minzoom": 5
+    },
+    { "id": "landcover-lowzoom", "description": "Lowzoom landcover", "fields": {}, "maxzoom": 8, "minzoom": 0 },
+    {
+      "id": "landuse",
+      "description": "Landuse polygons, such as residential, industrial, park, garden, school",
+      "fields": {
+        "type": "String. The type of landuse. One of residential, commercial, retail, industrial, railway, military, quarry, landfill, construction, cemetery, harbour, village_green, recreation_ground, allotments, farmyard, garages, park, golf_course, pitch, garden, common, playground, marina, stadium, sports_centre, track, swimming_pool, resort, beach_resort, parking, school, kindergarten, college, university, grave_yard",
+        "way_area": "Number. Area of landuse in Mercator square metres"
+      },
+      "maxzoom": 22,
+      "minzoom": 8
+    },
+    {
+      "id": "landcover",
+      "description": "Landcover polygons, such as forest, wood, orchard, beach, farmland etc",
+      "fields": {
+        "leaf_cycle": "String. One of evergreen, deciduous, semi_evergreen, semi_deciduous, mixed, null and various others (appropriate to forest and wood landcover types)",
+        "leaf_type": "String. One of broadleaved, needleleaved, mixed, leafless, null and various others (appropriate to forest and wood landcover types)",
+        "type": "String. The type of landcover. One of scree, bare_rock, sand, shingle, wood, scrub, heath, grassland, beach, forest, orchard, vineyard, grass, farmland, farm, meadow",
+        "way_area": "String. Area of landcover in Mercator square metres",
+        "wood": "String. Values are mixed, coniferous, deciduous, null and various others (appropriate to forest and wood landcover types)"
+      },
+      "maxzoom": 22,
+      "minzoom": 8
+    },
+    {
+      "id": "poi-area",
+      "description": "Selection of point of interest areas. Each area has a corresponding poi-label, but not all poi-label features have areas.",
+      "fields": {
+        "feature": "String. One of hospital, camp_site, caravan_site, picnic_site, zoo, rest_area, services, wastewater_plant, water_works, monument, castle, forst, archaeological_site",
+        "way_area": "Number. Area of the point of interest in Mercator square metress"
+      },
+      "maxzoom": 22,
+      "minzoom": 11
+    },
+    { "id": "glacier", "description": "Glaciers", "fields": {}, "maxzoom": 22, "minzoom": 8 },
+    {
+      "id": "wetland",
+      "description": "Wetland areas",
+      "fields": {
+        "name": "String. Name of the wetland",
+        "type": "String. One of marsh, swamp, bog, fen and tidalflat",
+        "way_area": "Number. Area of wetland in Mercator square metres"
+      },
+      "maxzoom": 22,
+      "minzoom": 9
+    },
+    {
+      "id": "water",
+      "description": "Water polygons",
+      "fields": {
+        "type": "String. One of reservoir, water, basin, dock, riverbank, canal",
+        "way_area": "Number. Area of water in Mercator square metres"
+      },
+      "maxzoom": 22,
+      "minzoom": 5
+    },
+    {
+      "id": "waterway",
+      "description": "Linear water features - rivers, streams, canals etc",
+      "fields": {
+        "bridge": "String. 'yes' if the waterway is on a bridge",
+        "intermittent": "String. 'yes' if the waterway is intermittent",
+        "tunnel": "String. 'yes' if the waterway is in a tunnel",
+        "waterway": "String. One of river, stream, canal, ditch or drain"
+      },
+      "maxzoom": 22,
+      "minzoom": 9
+    },
+    {
+      "id": "water-feature",
+      "description": "Selected water features",
+      "fields": {
+        "name": "String. The name of the feature",
+        "type": "String. One of dam, weir, lock_gate, pier, breakwater or groyne"
+      },
+      "maxzoom": 22,
+      "minzoom": 12
+    },
+    {
+      "id": "piste-line",
+      "description": "Ski pistes mapped as lines",
+      "fields": {
+        "piste:difficulty": "String. The difficulty rating of the piste, on of novice, easy, intermediate, advanced, expert, freeride, extreme or null"
+      },
+      "maxzoom": 22,
+      "minzoom": 12
+    },
+    {
+      "id": "piste-area",
+      "description": "Ski pistes mapped as areas",
+      "fields": {
+        "piste:difficulty": "String. The difficulty rating of the piste, on of novice, easy, intermediate, advanced, expert, freeride, extreme or null"
+      },
+      "maxzoom": 22,
+      "minzoom": 12
+    },
+    { "id": "ocean", "description": "Ocean Polygons", "fields": {}, "maxzoom": 22, "minzoom": 0 },
+    {
+      "id": "ferry",
+      "description": "Ferry routes",
+      "fields": {
+        "name": "The name of the route",
+        "operator": "The operator of the route",
+        "ref": "The reference of the route"
+      },
+      "maxzoom": 22,
+      "minzoom": 8
+    },
+    {
+      "id": "aeroway-area",
+      "description": "Aeroway areas, such as runways and taxiways",
+      "fields": { "aeroway": "String. One of runway, taxiway, apron, helipad, aerodrome or heliport" },
+      "maxzoom": 22,
+      "minzoom": 10
+    },
+    {
+      "id": "aeroway",
+      "description": "Aeroway linear features, such ares runways and taxiways",
+      "fields": { "aeroway": "String. One of runway or taxiway" },
+      "maxzoom": 22,
+      "minzoom": 10
+    },
+    {
+      "id": "road-area",
+      "description": "Roads and paths mapped as areas",
+      "fields": {
+        "bicycle": "String. Bicycle permissions",
+        "foot": "String. Walker permissions",
+        "highway": "String. The highway classification, one of 'residential', 'unclassified', 'pedestrian', 'service', 'footway', 'living_street', 'track', 'raceway', 'path', 'cycleway', 'steps', 'via_ferrata'",
+        "horse": "String. Horse riding permissions",
+        "mtb": "String. Mountain biking permissions"
+      },
+      "maxzoom": 22,
+      "minzoom": 14
+    },
+    {
+      "id": "golf",
+      "description": "Golfing features",
+      "fields": {
+        "golf": "The type of golfing feature",
+        "name": "The name of the feature",
+        "par": "The par of the hole",
+        "ref": "The reference of the feature"
+      },
+      "maxzoom": 22,
+      "minzoom": 14
+    },
+    {
+      "id": "sport-pitch",
+      "description": "Sports pitches. Uses the openstreetmap-fr scheme",
+      "fields": {},
+      "maxzoom": 22,
+      "minzoom": 14
+    },
+    {
+      "id": "building",
+      "description": "Buildings",
+      "fields": {
+        "aeroway": "String. This is 'terminal' for airport terminals",
+        "building": "String. The type of building"
+      },
+      "maxzoom": 22,
+      "minzoom": 14
+    },
+    {
+      "id": "barrier",
+      "description": "Linear barriers",
+      "fields": { "feature": "One of fence, wall, hedge or cliff" },
+      "maxzoom": 22,
+      "minzoom": 12
+    },
+    {
+      "id": "railway",
+      "description": "Railways, monorails, subways etc.",
+      "fields": {
+        "bridge": "String",
+        "railway": "String. The type of railway",
+        "service": "String. Includes service and yard.",
+        "tunnel": "String"
+      },
+      "maxzoom": 22,
+      "minzoom": 6
+    },
+    { "id": "railway-platform", "description": "Railway platforms", "fields": {}, "maxzoom": 22, "minzoom": 14 },
+    {
+      "id": "path",
+      "description": "Paths",
+      "fields": {
+        "bicycle": "String",
+        "foot": "String",
+        "highway": "String. The type of path, on of 'path', 'footway', 'cycleway', 'bridleway', 'pedestrian', 'steps', 'via_ferrata'",
+        "horse": "String",
+        "mtb": "String",
+        "mtb:scale": "String",
+        "mtb:scale:imba": "String",
+        "mtb:scale:uphill": "String",
+        "sac_scale": "String",
+        "surface": "String",
+        "trail_visibility": "String"
+      },
+      "maxzoom": 22,
+      "minzoom": 11
+    },
+    {
+      "id": "road",
+      "description": "Roads",
+      "fields": {
+        "bridge": "String",
+        "cycleway": "String",
+        "cycleway_left": "String",
+        "cycleway_right": "String",
+        "highway": "String. The type of highway, from motorway through to track. One of motorway, motorway_link, trunk, trunk_link, primary, primary_link, secondary, secondary_link, tertiary, tertiary_link, residential, unclassified, living_street, service, track, raceway",
+        "layer": "Number. Relative layer compared to nearby features",
+        "tunnel": "String",
+        "z_order": "Number. The order in which the roads should be drawn"
+      },
+      "maxzoom": 22,
+      "minzoom": 5
+    },
+    {
+      "id": "snowmobile",
+      "description": "Snowmobile routes",
+      "fields": {
+        "ice_road": "String",
+        "snowmobile": "String. One of 'yes', 'designated', 'permissive'",
+        "toll": "String"
+      },
+      "maxzoom": 22,
+      "minzoom": 11
+    },
+    { "id": "hiking", "description": "Signed hiking routes", "fields": {}, "maxzoom": 22, "minzoom": 4 },
+    {
+      "id": "cycling-lowzoom",
+      "description": "Signed cycling routes, simplified for low zooms",
+      "fields": {},
+      "maxzoom": 12,
+      "minzoom": 4
+    },
+    { "id": "cycling", "description": "Signed cycling routes", "fields": {}, "maxzoom": 22, "minzoom": 12 },
+    {
+      "id": "mountain-biking",
+      "description": "Signed mountain biking routes",
+      "fields": {},
+      "maxzoom": 22,
+      "minzoom": 7
+    },
+    {
+      "id": "aerialway",
+      "description": "Aerialways, such as cable cars and chair lifts",
+      "fields": {
+        "aerialway": "The type of aerialway. One of chair_lift, cable_car, drag_lift, gondola, mixed_lift, t-bar, j-bar, rope_tow, platter",
+        "name": "The name of the aerialway"
+      },
+      "maxzoom": 22,
+      "minzoom": 12
+    },
+    { "id": "power", "description": "Electricity transmission lines", "fields": {}, "maxzoom": 22, "minzoom": 13 },
+    {
+      "id": "protected-area",
+      "description": "Areas that are protected by legislations, such as nature reserves",
+      "fields": {},
+      "maxzoom": 22,
+      "minzoom": 9
+    },
+    {
+      "id": "admin",
+      "description": "Administrative boundaries, such as countries, states and regions",
+      "fields": {},
+      "maxzoom": 22,
+      "minzoom": 7
+    },
+    {
+      "id": "country-line",
+      "description": "Country Borders from Natural Earth",
+      "fields": {
+        "adm0_a3_l": "String",
+        "adm0_a3_r": "String",
+        "adm0_left": "String",
+        "adm0_right": "String",
+        "adm0_usa": "Number",
+        "comment": "String",
+        "featurecla": "String",
+        "FID_ne_10m": "Number",
+        "labelrank": "Number",
+        "name": "String",
+        "note_": "String",
+        "scalerank": "Number",
+        "sov_a3_l": "String",
+        "sov_a3_r": "String",
+        "type": "String"
+      },
+      "maxzoom": 9,
+      "minzoom": 2
+    },
+    {
+      "id": "state-line",
+      "description": "State borders from Natural Earth",
+      "fields": {
+        "adm0_a3": "String",
+        "adm0_name": "String",
+        "featurecla": "String",
+        "mapcolor13": "Number",
+        "mapcolor9": "Number",
+        "name": "String",
+        "name_alt_l": "String",
+        "name_alt_r": "String",
+        "name_l": "String",
+        "name_len_l": "Number",
+        "name_len_r": "Number",
+        "name_loc_l": "String",
+        "name_loc_r": "String",
+        "name_r": "String",
+        "note": "String",
+        "scalerank": "Number",
+        "shape_leng": "Number",
+        "sov_a3": "String"
+      },
+      "maxzoom": 9,
+      "minzoom": 3
+    },
+    {
+      "id": "country-label",
+      "description": "Country centroids, for label placement",
+      "fields": {},
+      "maxzoom": 7,
+      "minzoom": 2
+    },
+    {
+      "id": "state-label",
+      "description": "State centroids, for label placement",
+      "fields": { "name": "String", "postal": "String", "sr_adm0_a3": "String" },
+      "maxzoom": 8,
+      "minzoom": 3
+    },
+    {
+      "id": "place-label",
+      "description": "Places, such as town, cities, villages and islands",
+      "fields": {
+        "name": "String. The local name",
+        "name_de": "String. The German name, or the local name if not present",
+        "name_en": "String. The English name, or the local name if not present",
+        "name_es": "String. The Spanish name, or the local name if not present",
+        "name_fr": "String. The French name, or the local name if not present",
+        "name_with_de": "String. The local name, with the German name added (if different)",
+        "name_with_en": "String. The local name, with the English name added (if different)",
+        "name_with_es": "String. The local name, with the Spanish name added (if different)",
+        "name_with_fr": "String. The local name, with the French name added (if different)",
+        "place": "String. One of city, town, suburb, village, neighbourhood, hamlet, locality, isolated_dwelling, farm, island, islet",
+        "place_priority": "Number"
+      },
+      "maxzoom": 22,
+      "minzoom": 4
+    },
+    {
+      "id": "railway-station",
+      "description": "Railway stations",
+      "fields": { "railway": "String" },
+      "maxzoom": 22,
+      "minzoom": 10
+    },
+    { "id": "poi-label", "description": "Points of Interest", "fields": {}, "maxzoom": 22, "minzoom": 12 },
+    { "id": "golf-label", "description": "Labels for golf courses", "fields": {}, "maxzoom": 22, "minzoom": 14 },
+    {
+      "id": "protected-area-label",
+      "description": "Labels for protected areas",
+      "fields": {},
+      "maxzoom": 22,
+      "minzoom": 9
+    },
+    { "id": "glacier-label", "description": "Labels for glaciers", "fields": {}, "maxzoom": 22, "minzoom": 12 },
+    {
+      "id": "cycling-node-network-label",
+      "description": "Labels for cycling node networks",
+      "fields": {},
+      "maxzoom": 22,
+      "minzoom": 10
+    },
+    {
+      "id": "hiking-label",
+      "description": "Labels for signed hiking routes",
+      "fields": {
+        "name": "String. Name of the hiking route",
+        "ref": "String. Reference of the hiking route",
+        "ref_length": "Number. Length of the route reference - useful for shields",
+        "symbol_code": "The osmc symbol code for the route"
+      },
+      "maxzoom": 22,
+      "minzoom": 11
+    },
+    {
+      "id": "path-label",
+      "description": "Labels for paths",
+      "fields": { "name": "String. The name of the path" },
+      "maxzoom": 22,
+      "minzoom": 13
+    },
+    {
+      "id": "road-label",
+      "description": "Labels for roads",
+      "fields": {
+        "cycleway": "String",
+        "highway": "String. One of motorway, motorway_link, trunk, trunk_link, primary, primary_link, secondary, secondary_link, tertiary, tertiary_link, residential, unclassified, living_street, service, track, raceway",
+        "name": "String. The name of the highway",
+        "oneway": "String",
+        "ref": "String. The reference of the highway",
+        "ref_length": "Number. The number of characters in the ref",
+        "tracktype": "String"
+      },
+      "maxzoom": 22,
+      "minzoom": 7
+    },
+    { "id": "water-label", "description": "Labels for water areas", "fields": {}, "maxzoom": 22, "minzoom": 7 },
+    {
+      "id": "landuse-label",
+      "description": "Labels for landuse areas",
+      "fields": {
+        "name": "String. The name of the landuse area",
+        "type": "String. The type of landuse. One of residential, commercial, retail, industrial, railway, military, quarry, landfill, construction, cemetery, harbour, village_green, recreation_ground, allotments, farmyard, garages, park, golf_course, pitch, garden, common, playground, marina, stadium, sports_centre, track, swimming_pool, resort, beach_resort, parking, school, kindergarten, college, university, grave_yard",
+        "way_area": "Number. Area of landuse in Mercator square metres"
+      },
+      "maxzoom": 22,
+      "minzoom": 11
+    },
+    {
+      "id": "landcover-label",
+      "description": "Labels for landcover areas",
+      "fields": {},
+      "maxzoom": 22,
+      "minzoom": 11
+    },
+    {
+      "id": "aeroway-label",
+      "description": "Labels for aeroway features",
+      "fields": {
+        "aeroway": "String. The type of aeroway. One of aerodrome, heliport, helipad",
+        "iata": "String. The IATA code for the aeroway, e.g. LHR, JFK",
+        "icao": "String. The ICAO code for the aeroway, e.g. EGLL, KJFK",
+        "name": "String. The name of the aeroway"
+      },
+      "maxzoom": 22,
+      "minzoom": 9
+    },
+    {
+      "id": "waterway-label",
+      "description": "Labels for waterways",
+      "fields": {
+        "name": "String. The name of the waterway",
+        "waterway": "String. The type of waterway. One of river, canal, stream, drain, ditch"
+      },
+      "maxzoom": 22,
+      "minzoom": 11
+    },
+    {
+      "id": "interpolation",
+      "description": "Interpolation lines for addresses",
+      "fields": {},
+      "maxzoom": 22,
+      "minzoom": 14
+    },
+    { "id": "address", "description": "Address point labels", "fields": {}, "maxzoom": 22, "minzoom": 14 }
+  ]
+}

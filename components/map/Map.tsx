@@ -4,8 +4,8 @@ import maplibregl, { LngLat, LngLatBounds } from 'maplibre-gl'
 import styles from './Map.module.css'
 
 // const STYLE = 'https://storage.googleapis.com/hellopvt3/charted-territory.json'
-// const STYLE = 'https://demotiles.maplibre.org/style.json'
-const STYLE = 'https://basemaps-api.arcgis.com/arcgis/rest/services/styles/ArcGIS:ChartedTerritory?type=style&token=AAPK2b935e8bbf564ef581ca3c6fcaa5f2a71ZH84cPqqFvyz3KplFRHP8HyAwJJkh6cnpcQ-qkWh5aiyDQsGJbsXglGx0QM2cPm'
+const STYLE = 'https://demotiles.maplibre.org/style.json'
+// const STYLE = 'https://basemaps-api.arcgis.com/arcgis/rest/services/styles/ArcGIS:ChartedTerritory?type=style&token=AAPK2b935e8bbf564ef581ca3c6fcaa5f2a71ZH84cPqqFvyz3KplFRHP8HyAwJJkh6cnpcQ-qkWh5aiyDQsGJbsXglGx0QM2cPm'
 
 // 2.1.9 is what esri is using
 

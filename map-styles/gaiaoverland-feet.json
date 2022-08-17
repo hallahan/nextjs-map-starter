@@ -9,27 +9,27 @@
   "sources": {
     "gaiaosm": {
       "type": "vector",
-      "tiles": ["g://gaiaosmv4/{z}/{x}/{y}"],
+      "tiles": ["https://vectortiles.gaiagps.com/osm4/{z}/{x}/{y}"],
       "minzoom": 0,
       "maxzoom": 12,
       "attribution": "<a href=\"http://www.openstreetmap.org/copyright\" target=\"_blank\">&copy; OpenStreetMap Contributors</a>"
     },
     "gaiashadedrelief": {
       "type": "raster",
-      "tiles": ["g://gaiashadedrelief/{z}/{x}/{y}"],
+      "tiles": ["https://statictiles.gaiagps.com/hillshade_v1/{z}/{x}/{y}"],
       "minzoom": 0,
       "maxzoom": 12
     },
     "contours": {
       "type": "vector",
-      "tiles": ["g://contoursfeetz12/{z}/{x}/{y}"],
+      "tiles": ["https://vectortiles.gaiagps.com/contours-feet-z12/{z}/{x}/{y}"],
       "minzoom": 8,
       "maxzoom": 12,
       "attribution": "Gaia GPS"
     },
     "landcover": {
       "type": "vector",
-      "tiles": ["g://landcover/{z}/{x}/{y}"],
+      "tiles": ["https://vectortiles.gaiagps.com/landcover/{z}/{x}/{y}"],
       "minzoom": 8,
       "maxzoom": 12,
       "attribution": "Gaia GPS"
