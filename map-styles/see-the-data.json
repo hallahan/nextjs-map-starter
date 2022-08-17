@@ -1,0 +1,266 @@
+{
+  "version": 8,
+  "name": "See the Data",
+  "metadata": {
+    "maptiler:copyright": "This style was generated on MapTiler Cloud. Usage is governed by the license terms in https://github.com/maplibre/demotiles/blob/gh-pages/LICENSE",
+    "openmaptiles:version": "3.x"
+  },
+  "center": [
+    0,
+    0
+  ],
+  "zoom": 1,
+  "bearing": 0,
+  "pitch": 0,
+  "sources": {
+    "maplibre": {
+      "url": "https://demotiles.maplibre.org/tiles/tiles.json",
+      "type": "vector"
+    },
+    "sat": {
+      "type": "raster",
+      "tiles": [
+        "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
+      ],
+      "minzoom": 0,
+      "maxzoom": 23
+    }
+  },
+  "glyphs": "https://demotiles.maplibre.org/font/{fontstack}/{range}.pbf",
+  "layers": [
+    {
+      "id": "background",
+      "type": "background",
+      "maxzoom": 24,
+      "filter": [
+        "all"
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "background-color": "rgba(0, 0, 0, 1)"
+      }
+    },
+    {
+      "id": "sat",
+      "type": "raster",
+      "source": "sat",
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "raster-opacity": {
+          "stops": [
+            [
+              1,
+              0.8
+            ],
+            [
+              5,
+              0.3
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "countries-boundary",
+      "type": "line",
+      "source": "maplibre",
+      "source-layer": "countries",
+      "maxzoom": 24,
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(255, 255, 255, 1)",
+        "line-width": {
+          "stops": [
+            [
+              1,
+              1
+            ],
+            [
+              10,
+              2
+            ],
+            [
+              22,
+              6
+            ]
+          ]
+        },
+        "line-opacity": {
+          "stops": [
+            [
+              3,
+              0.5
+            ],
+            [
+              6,
+              1
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "geolines",
+      "type": "line",
+      "source": "maplibre",
+      "source-layer": "geolines",
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "!=",
+          "name",
+          "International Date Line"
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "#1077B0",
+        "line-opacity": 1,
+        "line-dasharray": [
+          3,
+          3
+        ]
+      }
+    },
+    {
+      "id": "geolines-label",
+      "type": "symbol",
+      "source": "maplibre",
+      "source-layer": "geolines",
+      "minzoom": 1,
+      "maxzoom": 24,
+      "filter": [
+        "all",
+        [
+          "!=",
+          "name",
+          "International Date Line"
+        ]
+      ],
+      "layout": {
+        "text-font": [
+          "Open Sans Semibold"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              2,
+              12
+            ],
+            [
+              6,
+              16
+            ]
+          ]
+        },
+        "text-field": "{name}",
+        "visibility": "visible",
+        "symbol-placement": "line"
+      },
+      "paint": {
+        "text-color": "#1077B0",
+        "text-halo-blur": 1,
+        "text-halo-color": "rgba(255, 255, 255, 1)",
+        "text-halo-width": 1
+      }
+    },
+    {
+      "id": "countries-label",
+      "type": "symbol",
+      "source": "maplibre",
+      "source-layer": "centroids",
+      "minzoom": 0,
+      "maxzoom": 24,
+      "filter": [
+        "all"
+      ],
+      "layout": {
+        "text-font": [
+          "Open Sans Semibold"
+        ],
+        "text-size": {
+          "stops": [
+            [
+              2,
+              10
+            ],
+            [
+              4,
+              16
+            ],
+            [
+              6,
+              36
+            ]
+          ]
+        },
+        "text-field": {
+          "stops": [
+            [
+              2,
+              "{ABBREV}"
+            ],
+            [
+              4,
+              "{NAME}"
+            ]
+          ]
+        },
+        "visibility": "visible",
+        "text-max-width": 10,
+        "text-transform": {
+          "stops": [
+            [
+              0,
+              "uppercase"
+            ],
+            [
+              2,
+              "none"
+            ]
+          ]
+        }
+      },
+      "paint": {
+        "text-color": "rgba(255, 255, 255, 1)",
+        "text-halo-blur": {
+          "stops": [
+            [
+              2,
+              0.4
+            ],
+            [
+              6,
+              0.2
+            ]
+          ]
+        },
+        "text-halo-color": "rgba(0, 0, 0, 1)",
+        "text-halo-width": {
+          "stops": [
+            [
+              2,
+              1
+            ],
+            [
+              6,
+              2
+            ]
+          ]
+        }
+      }
+    }
+  ],
+  "id": "j3n1eu2du"
+}
