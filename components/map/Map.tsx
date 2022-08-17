@@ -3,6 +3,11 @@ import maplibregl, { LngLat, LngLatBounds } from 'maplibre-gl'
 
 import styles from './Map.module.css'
 
+// const STYLE = 'https://storage.googleapis.com/hellopvt3/charted-territory.json'
+const STYLE = 'https://demotiles.maplibre.org/style.json'
+
+// 2.1.9 is what esri is using
+
 export type MapInfo = {
   bounds: LngLatBounds
   center: LngLat
@@ -24,7 +29,7 @@ export default function Map({ children, onInit, onMove }: MapProps) {
   useEffect(() => {
     const map = new maplibregl.Map({
       container: mapContainerRef.current,
-      style: 'https://demotiles.maplibre.org/style.json',
+      style: STYLE,
       center: [5, 34],
       zoom: 2,
     })

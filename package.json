@@ -17,7 +17,7 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "clean": "rm -rf node_modules .next prisma/schema.prisma package-lock.json",
+    "clean": "rm -rf node_modules .next package-lock.json",
     "format": "prettier --write . && prisma format --schema prisma/schema.prisma"
   },
   "dependencies": {
