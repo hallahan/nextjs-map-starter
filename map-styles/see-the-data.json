@@ -24,6 +24,10 @@
       ],
       "minzoom": 0,
       "maxzoom": 23
+    },
+    "shards": {
+      "type": "geojson",
+      "data": "https://storage.googleapis.com/hellopvt3/shards.geojson"
     }
   },
   "glyphs": "https://demotiles.maplibre.org/font/{fontstack}/{range}.pbf",
@@ -169,14 +173,14 @@
         "symbol-placement": "line"
       },
       "paint": {
-        "text-color": "#1077B0",
+        "text-color": "rgba(255, 255, 255, 1)",
         "text-halo-blur": 1,
-        "text-halo-color": "rgba(255, 255, 255, 1)",
+        "text-halo-color": "#1077B0",
         "text-halo-width": 1
       }
     },
     {
-      "id": "countries-label",
+      "id": "countries_label",
       "type": "symbol",
       "source": "maplibre",
       "source-layer": "centroids",
@@ -259,6 +263,33 @@
             ]
           ]
         }
+      }
+    },
+    {
+      "id": "shards",
+      "type": "line",
+      "source": "shards",
+      "paint": {
+        "line-color": "rgba(235, 124, 255, 0.3)",
+        "line-width": 0.5
+      }
+    },
+    {
+      "id": "shards_label",
+      "type": "symbol",
+      "source": "shards",
+      "layout": {
+        "text-field": [
+          "get",
+          "file"
+        ],
+        "text-anchor": "center",
+        "text-size": 14
+      },
+      "paint": {
+        "text-color": "rgba(235, 124, 255, 1)",
+        "text-halo-color": "rgba(0, 0, 0, 1)",
+        "text-halo-width": 1
       }
     }
   ],
