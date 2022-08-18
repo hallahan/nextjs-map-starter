@@ -1,0 +1,182 @@
+{
+  "tilejson": "2.0.0",
+  "name": "poc2",
+  "type": "baselayer",
+  "description": "set375",
+  "format": "pbf",
+  "profile": "mercator",
+  "version": "1",
+  "minzoom": "0",
+  "maxzoom": "14",
+  "bounds": [
+    -180,
+    -85,
+    180,
+    85
+  ],
+  "center": [0,0,1],
+  "vector_layers": [
+    {
+      "id": "place",
+      "fields": {
+        "class": "String",
+        "name:latin": "String",
+        "rank": "Number"
+      },
+      "minzoom": 0,
+      "maxzoom": 14
+    },
+    {
+      "id": "boundary",
+      "fields": {
+        "admin_level": "Number",
+        "disputed": "Number"
+      },
+      "minzoom": 0,
+      "maxzoom": 14
+    },
+    {
+      "id": "poi",
+      "fields": {
+        "class": "String",
+        "name:latin": "String",
+        "rank": "Number",
+        "subclass": "String"
+      },
+      "minzoom": 12,
+      "maxzoom": 14
+    },
+    {
+      "id": "housenumber",
+      "fields": {
+        "housenumber": "String"
+      },
+      "minzoom": 14,
+      "maxzoom": 14
+    },
+    {
+      "id": "waterway",
+      "fields": {
+        "brunnel": "String",
+        "class": "String",
+        "intermittent": "Number",
+        "name:latin": "String"
+      },
+      "minzoom": 8,
+      "maxzoom": 14
+    },
+    {
+      "id": "transportation",
+      "fields": {
+        "brunnel": "String",
+        "class": "String",
+        "oneway": "Number",
+        "ramp": "Number",
+        "service": "String"
+      },
+      "minzoom": 4,
+      "maxzoom": 14
+    },
+    {
+      "id": "transportation_name",
+      "fields": {
+        "class": "String",
+        "name:latin": "String",
+        "network": "String",
+        "ref": "String",
+        "ref_length": "Number"
+      },
+      "minzoom": 8,
+      "maxzoom": 14
+    },
+    {
+      "id": "building",
+      "fields": {
+        "render_height": "Number",
+        "render_min_height": "Number"
+      },
+      "minzoom": 13,
+      "maxzoom": 14
+    },
+    {
+      "id": "water",
+      "fields": {
+        "class": "String",
+        "intermittent": "String"
+      },
+      "minzoom": 6,
+      "maxzoom": 14
+    },
+    {
+      "id": "water_name",
+      "fields": {
+        "class": "String",
+        "name:latin": "String"
+      },
+      "minzoom": 14,
+      "maxzoom": 14
+    },
+    {
+      "id": "aeroway",
+      "fields": {
+        "class": "String",
+        "ref": "String"
+      },
+      "minzoom": 11,
+      "maxzoom": 14
+    },
+    {
+      "id": "aerodrome_label",
+      "fields": {
+        "class": "String",
+        "ele": "Number",
+        "ele_ft": "Number",
+        "iata": "String",
+        "icao": "String",
+        "name:latin": "String"
+      },
+      "minzoom": 10,
+      "maxzoom": 14
+    },
+    {
+      "id": "park",
+      "fields": {
+        "class": "String",
+        "name:latin": "String"
+      },
+      "minzoom": 11,
+      "maxzoom": 14
+    },
+    {
+      "id": "landuse",
+      "fields": {
+        "class": "String"
+      },
+      "minzoom": 4,
+      "maxzoom": 14
+    },
+    {
+      "id": "landcover",
+      "fields": {
+        "class": "String",
+        "subclass": "String"
+      },
+      "minzoom": 0,
+      "maxzoom": 14
+    },
+    {
+      "id": "mountain_peak",
+      "fields": {
+        "class": "String",
+        "ele": "Number",
+        "ele_ft": "Number",
+        "name:latin": "String",
+        "rank": "Number"
+      },
+      "minzoom": 11,
+      "maxzoom": 14
+    }
+  ],
+  "tiles": ["https://storage.googleapis.com/hellopvt3/poc2/{z}/{x}/{y}"]
+
+}

@@ -29,13 +29,10 @@
       "type": "geojson",
       "data": "https://storage.googleapis.com/hellopvt3/shards.geojson"
     },
-    "set375": {
+    "poc2": {
       "type": "vector",
-      "tiles": [
-        "https://storage.googleapis.com/hellopvt3/set375/{z}/{x}/{y}"
-      ],
-      "minZoom": 0,
-      "maxZoom": 14
+      "url": "https://storage.googleapis.com/hellopvt3/poc2/tiles.json",
+      "maxzoom": 14
     }
   },
   "glyphs": "https://demotiles.maplibre.org/font/{fontstack}/{range}.pbf",
@@ -278,7 +275,7 @@
       "type": "line",
       "source": "shards",
       "layout": {
-        "visibility": "none"
+        "visibility": "visible"
       },
       "paint": {
         "line-color": "rgba(235, 124, 255, 0.3)",
@@ -296,7 +293,7 @@
         ],
         "text-anchor": "center",
         "text-size": 14,
-        "visibility": "none"
+        "visibility": "visible"
       },
       "paint": {
         "text-color": "rgba(235, 124, 255, 1)",
@@ -307,7 +304,7 @@
     {
       "id": "place",
       "type": "circle",
-      "source": "set375",
+      "source": "poc2",
       "source-layer": "place",
       "layout": {
         "visibility": "visible"
@@ -320,7 +317,7 @@
     {
       "id": "boundary",
       "type": "line",
-      "source": "set375",
+      "source": "poc2",
       "source-layer": "boundary",
       "layout": {
         "visibility": "visible"
@@ -333,7 +330,7 @@
     {
       "id": "building",
       "type": "fill",
-      "source": "set375",
+      "source": "poc2",
       "source-layer": "building",
       "minzoom": 13,
       "maxzoom": 24,
